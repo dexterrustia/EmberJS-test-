@@ -1,0 +1,30 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">User name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Website</th>
+      <td scope="col">Actions</td>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.users.userList as |user|}}
+
+    <tr>
+      <th scope="col">{{user.id}}</th>
+      <td scope="col">{{user.name}}</td>
+      <td scope="col">{{user.username}}</td>
+      <td scope="col">{{user.email}}</td>
+      <td scope="col">{{user.phone}}</td>
+      <td scope="col">{{user.website}}</td>
+      <td scope="col">
+        <ActionButtons />
+      </td>
+    </tr>
+    {{/each}}
+
+  </tbody>
+</table>
