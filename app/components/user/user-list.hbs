@@ -21,7 +21,11 @@
       <td scope="col">{{user.phone}}</td>
       <td scope="col">{{user.website}}</td>
       <td scope="col">
-        <ActionButtons />
+        <div class="action-buttons-container">
+          <button type="button" class="btn btn-primary">{{fa-icon "pencil"}}</button>
+          <button type="button" class="btn btn-danger"
+            {{on "click" (fn this.deleteUser user)}}>{{fa-icon "trash"}}</button>
+        </div>
       </td>
     </tr>
     {{/each}}

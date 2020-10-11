@@ -1,3 +1,64 @@
 <main class="conainer nt-5">
-  <User::UserList />
+  <!-- Button trigger modal -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputFullName">Full name </label>
+              <input type="text" class="form-control" id="exampleInputFullName" aria-describedby="FullNameHelp">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputUsername">Username</label>
+              <input type="text" class="form-control" id="exampleInputUsername" aria-describedby="UsernameHelp">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPhone">Phone</label>
+              <input type="number" class="form-control" id="exampleInputPhone">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputWebsite">Website</label>
+              <input type="text" class="form-control" id="exampleInputWebsite">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer" style="display:none">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home</li>
+        <li class="breadcrumb-item">User Details</li>
+      </ol>
+    </nav>
+
+    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
+      Add New User
+    </button>
+    <br />
+    <br />
+    <User::UserList />
+  </div>
 </main>

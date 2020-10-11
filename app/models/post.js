@@ -1,11 +1,6 @@
-import Model from "@ember-data/model";
-import DS from "ember-data";
+import Model,{ attr } from "@ember-data/model"; 
 
-const { attr, belongsTo } = DS;
-
-export default class PostModel extends Model {
-  userId = belongsTo("user");
-
+export default class PostModel extends Model { 
   title = attr("string");
   body = attr("string");
 }
