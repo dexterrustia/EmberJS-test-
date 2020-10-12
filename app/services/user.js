@@ -91,6 +91,7 @@ export default class UserService extends Service {
   }
 
   add(user){
+    console.log(`this is fired ${JSON.stringify(user)}`)
     this.userList.pushObject(user);
   }
 

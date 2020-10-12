@@ -1,20 +1,20 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      {{!-- <th scope="col">#</th> --}}
       <th scope="col">Name</th>
       <th scope="col">User name</th>
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
       <th scope="col">Website</th>
-      <td scope="col">Actions</td>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
-    {{#each this.users.userList as |user|}}
+    {{#each this.users.userList as |user index|}}
 
     <tr>
-      <th scope="col">{{user.id}}</th>
+      {{!-- <th scope="col">{{user}}</th> --}}
       <td scope="col">{{user.name}}</td>
       <td scope="col">{{user.username}}</td>
       <td scope="col">{{user.email}}</td>
@@ -22,9 +22,13 @@
       <td scope="col">{{user.website}}</td>
       <td scope="col">
         <div class="action-buttons-container">
-          <button type="button" class="btn btn-primary">{{fa-icon "pencil"}}</button>
-          <button type="button" class="btn btn-danger"
-            {{on "click" (fn this.deleteUser user)}}>{{fa-icon "trash"}}</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+            {{on "click" (fn this.testAction user)}}>
+            {{fa-icon "pencil"}}
+          </button>
+          <button type="button" class="btn btn-danger" {{on "click" (fn this.deleteUser user)}}>
+            {{fa-icon "trash"}}
+          </button>
         </div>
       </td>
     </tr>
