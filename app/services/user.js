@@ -1,9 +1,19 @@
 import { A } from '@ember/array'
 import Service from '@ember/service';
+import {tracked} from '@glimmer/tracking' 
 
 export default class UserService extends Service {
-  user = {};
-  userList = A([ 
+  @tracked user = { 
+    id: '',
+    name: '',
+    username: '',
+    email: '',
+    phone: '',
+    website: '',
+  };
+  @tracked isEdit = false;
+
+  @tracked userList = A([ 
     {
       id: 1,
       name: "Leanne Graham",
@@ -85,19 +95,35 @@ export default class UserService extends Service {
       website: "ambrose.net"
     },
   ]); 
-
-  updated(user){
-    this.userList.replace(user.id,1,user);
+  
+  clearUser(){ 
+    this.user = { 
+      id: '',
+      name: '',
+      username: '',
+      email: '',
+      phone: '',
+      website: '',
+    }; 
   }
 
-  add(user){
-    console.log(`this is fired ${JSON.stringify(user)}`)
-    this.userList.pushObject(user);
+  update(){
+    console.log('update is fired')
+    console.log(this.user) 
+    this.userList.replace(this.user.id,1,[this.user]);
+    this.clearUser();
+  }
+
+  add(){
+    console.log('add is fired')
+    console.log(`this is fired ${JSON.stringify(this.user)}`)
+    this.userList.pushObject(this.user); 
+    this.clearUser();
   }
 
   remove(user){ 
+    console.log('remove is fired')
     this.userList.removeObject(user);
-  }
-
+  } 
   
 }

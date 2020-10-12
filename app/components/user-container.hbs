@@ -6,7 +6,14 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
+          <h5 class="modal-title" id="exampleModalLabel">
+            {{#if this.users.isEdit}}
+            <span>Edit</span>
+            {{else}}
+            <span>New</span>
+            {{/if}}
+            User Details
+          </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -15,24 +22,29 @@
           <form>
             <div class="form-group">
               <label for="exampleInputFullName">Full name </label>
-              <input type="text" id="fullName" class="form-control" onkeyup={{action "handleChange"}} />
+              <input type="text" id="name" class="form-control" onkeyup={{action "handleChange"}}
+                value={{this.users.user.name}} />
             </div>
             <div class="form-group">
               <label for="exampleInputUsername">Username</label>
-              <input type="text" id="userName" class="form-control" onkeyup={{action "handleChange"}} />
+              <input type="text" id="username" class="form-control" onkeyup={{action "handleChange"}}
+                value={{this.users.user.username}} />
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
-              <input type="email" id="email" class="form-control" onkeyup={{action "handleChange"}} />
+              <input type="email" id="email" class="form-control" onkeyup={{action "handleChange"}}
+                value={{this.users.user.email}} />
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
               <label for="exampleInputPhone">Phone</label>
-              <input type="number" id="phone" class="form-control" onkeyup={{action "handleChange"}} />
+              <input type="text" id="phone" class="form-control" onkeyup={{action "handleChange"}}
+                value={{this.users.user.phone}} />
             </div>
             <div class="form-group">
               <label for="exampleInputWebsite">Website</label>
-              <input type="text" id="website" class="form-control" onkeyup={{action "handleChange"}} />
+              <input type="text" id="website" class="form-control" onkeyup={{action "handleChange"}}
+                value={{this.users.user.website}} />
             </div>
             <button class="btn btn-primary" {{on "click" this.saveUser}} data-dismiss="modal">Submit</button>
           </form>
@@ -54,7 +66,8 @@
       </ol>
     </nav>
 
-    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
+    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal"
+      {{on "click" (fn this.clearUser)}}>
       Add New User
     </button>
     <br />

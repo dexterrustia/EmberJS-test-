@@ -9,5 +9,11 @@ export default class UserUserListComponent extends Component {
     console.log(user)
     this.users.remove(user) 
   }
+
+  @action setUserForEdit(user){
+    this.users.isEdit = true;
+    this.users.user = user
+    console.log(this.users.isEdit)
+  }
  
 }

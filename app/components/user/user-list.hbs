@@ -23,7 +23,7 @@
       <td scope="col">
         <div class="action-buttons-container">
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-            {{on "click" (fn this.testAction user)}}>
+            {{on "click" (fn this.setUserForEdit user)}}>
             {{fa-icon "pencil"}}
           </button>
           <button type="button" class="btn btn-danger" {{on "click" (fn this.deleteUser user)}}>
