@@ -13,15 +13,21 @@ export default class UserContainerComponent extends Component {
     // console.log(e.target.value);
     // console.log(e.target.id) 
     this.users.user[prop] = e.target.value; 
-    console.log('this.users.user[prop] =>'+this.users.user[prop]);
+    console.log('this.users.user[prop] =>'+this.users.user[prop]); 
 
   }
 
   @action saveUser(e) {
     e.preventDefault(); 
     //console.log(user);
-    (this.users.isEdit) ? this.users.update() :  this.users.add();  
+    (this.users.isEdit) ? this.users.update() :  this.users.add();
   } 
+
+  @action addRecord(){ 
+    console.log('"addRecord" it fired using "this"');
+    //const userList = this.get('userList'); 
+    //console.log(userList) 
+  }
 
   @action clearUser(){
     this.users.isEdit = false;

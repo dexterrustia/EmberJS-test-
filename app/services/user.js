@@ -1,9 +1,8 @@
 import { A } from '@ember/array'
-import Service,{inject as service} from '@ember/service';
+import Service from '@ember/service';
 import {tracked} from '@glimmer/tracking' 
 
-export default class UserService extends Service {
-  @service store;
+export default class UserService extends Service { 
   @tracked user = { 
     id: '',
     name: '',
@@ -42,7 +41,7 @@ export default class UserService extends Service {
   add(){
     console.log('add is fired')
     console.log(`this is fired ${JSON.stringify(this.user)}`) 
-    this.clearUser();
+    this.clearUser(); 
   }
 
   remove(user){ 

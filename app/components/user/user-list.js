@@ -10,7 +10,7 @@ export default class UserUserListComponent extends Component {
     this.users.remove(user) 
   }
 
-  @action setUserForEdit(user){
+  @action setUserForEdit(user){ 
     this.users.isEdit = true;
     this.users.user = user
     console.log(this.users.isEdit)

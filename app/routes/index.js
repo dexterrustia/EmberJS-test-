@@ -1,13 +1,9 @@
-import Route from '@ember/routing/route';
-import {inject as service} from '@ember/service'
+import Route from '@ember/routing/route'; 
 
-export default class IndexRoute extends Route {
-  @service store
+export default class IndexRoute extends Route { 
   model() {
     const users = this.store.findAll('user');
-    console.log(users);
-
-    return { users };
-    
-  }
+    console.log(users); 
+    return { users }; 
+  } 
 }
